@@ -1,0 +1,41 @@
+<meta charset="utf-8">
+
+<script>
+    
+    function pulaLinha() {
+        document.write("<br><hr><br>");
+    }
+
+    function mostra(frase) {
+        document.write("<big>" + frase + "</big>");
+        pulaLinha();
+    }
+
+    function sorteia(numeroTotal) {
+        var numeroSorteado = Math.round(Math.random() * numeroTotal);
+        return numeroSorteado;
+    }
+
+    var numeroTotal = parseInt(prompt("Digite um número inteiro qualquer: "));
+    var numeroSorteado = sorteia(numeroTotal);
+    
+    var numeroChutado = parseInt(prompt("Chute um número de 0 a " + numeroTotal));
+    
+    var tentativas = 1;
+
+    while(tentativas <= 3) {
+
+        if(numeroChutado == numeroSorteado) {
+            mostra("Você acertou! O número sorteado foi " + numeroSorteado);
+            break;
+        }
+        else {
+            mostra("Você errou!");
+            var numeroChutado = parseInt(prompt("Você errou! Tente novamente novamente: "));
+        }
+        tentativas++;
+    }
+
+    mostra("FIM");
+
+</script>
